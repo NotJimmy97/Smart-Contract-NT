@@ -1,40 +1,33 @@
-# Smart-Contract-NT
+# Solidity Smart Contract Assignment
+**Name:** Nguyễn Nhật Tú
+**Roll No:** 29211438698
+**Email:** nguyennhattu3@dtu.edu.vn (`nhattunguyen97@gmail.com`)
+**GitHub:** [NotJimmy97](https://github.com/NotJimmy97)
 
-Collection of 15 standalone Solidity smart contracts (`pragma solidity ^0.8.0`, MIT License) progressive from basic state storage to advanced DeFi/governance patterns, compiled and verified on Remix IDE.
+| # | Contract | Level | Tested on Ganache | Screenshots |
+|---|---|---|---|---|
+| 01 | [Storage](contracts/01_Storage.sol) | Basic | YES | [01_compile.png](screenshots/01_compile.png), [01_test1.png](screenshots/01_test1.png), [01_test2.png](screenshots/01_test2.png) |
+| 02 | [Greeting](contracts/02_Greeting.sol) | Basic | YES | [02_compile.png](screenshots/02_compile.png), [02_test1.png](screenshots/02_test1.png), [02_test2.png](screenshots/02_test2.png) |
+| 03 | [Counter](contracts/03_Counter.sol) | Basic | YES | [03_compile.png](screenshots/03_compile.png), [03_test1.png](screenshots/03_test1.png), [03_test2.png](screenshots/03_test2.png) |
+| 04 | [Ownable & ProtectedVault](contracts/04_Ownable.sol) | Medium | YES | [04_compile.png](screenshots/04_compile.png), [04_test1.png](screenshots/04_test1.png), [04_test2.png](screenshots/04_test2.png) |
+| 05 | [SimpleBank](contracts/05_SimpleBank.sol) | Medium | YES | [05_compile.png](screenshots/05_compile.png), [05_test1.png](screenshots/05_test1.png), [05_test2.png](screenshots/05_test2.png) |
+| 06 | [Voting](contracts/06_Voting.sol) | Medium | YES | [06_compile.png](screenshots/06_compile.png), [06_test1.png](screenshots/06_test1.png), [06_test2.png](screenshots/06_test2.png) |
+| 07 | [MyToken](contracts/07_MyToken.sol) | Medium | YES | [07_compile.png](screenshots/07_compile.png), [07_test1.png](screenshots/07_test1.png), [07_test2.png](screenshots/07_test2.png) |
+| 08 | [Crowdfunding](contracts/08_Crowdfunding.sol) | Advanced | YES | [08_compile.png](screenshots/08_compile.png), [08_test1.png](screenshots/08_test1.png), [08_test2.png](screenshots/08_test2.png) |
+| 09 | [Lottery](contracts/09_Lottery.sol) | Advanced | YES | [09_compile.png](screenshots/09_compile.png), [09_test1.png](screenshots/09_test1.png), [09_test2.png](screenshots/09_test2.png) |
+| 10 | [TimeLockVault](contracts/10_TimeLockVault.sol) | Advanced | YES | [10_compile.png](screenshots/10_compile.png), [10_test1.png](screenshots/10_test1.png), [10_test2.png](screenshots/10_test2.png) |
+| 11 | [Escrow](contracts/11_Escrow.sol) | Advanced | YES | [11_compile.png](screenshots/11_compile.png), [11_test1.png](screenshots/11_test1.png), [11_test2.png](screenshots/11_test2.png) |
+| 12 | [SimpleNFT](contracts/12_SimpleNFT.sol) | Advanced | YES | [12_compile.png](screenshots/12_compile.png), [12_test1.png](screenshots/12_test1.png), [12_test2.png](screenshots/12_test2.png) |
+| 13 | [EnglishAuction](contracts/13_EnglishAuction.sol) | Expert | YES | [13_compile.png](screenshots/13_compile.png), [13_test1.png](screenshots/13_test1.png), [13_test2.png](screenshots/13_test2.png) |
+| 14 | [MultisigWallet](contracts/14_MultisigWallet.sol) | Expert | YES | [14_compile.png](screenshots/14_compile.png), [14_test1.png](screenshots/14_test1.png), [14_test2.png](screenshots/14_test2.png) |
+| 15 | [StakingRewards](contracts/15_StakingRewards.sol) | Expert | YES | [15_compile.png](screenshots/15_compile.png), [15_test1.png](screenshots/15_test1.png), [15_test2.png](screenshots/15_test2.png) |
 
-## Repository Structure
+## How to run
+1. Open [Remix IDE](https://remix.ethereum.org) -> paste/open contract from `contracts/` -> compile with Solidity `0.8.x` (set **Advanced Configurations -> EVM Version: `shanghai`** when using Solidity `>= 0.8.25` with Ganache so `MCOPY` opcodes are avoided).
+2. Start Ganache QUICKSTART on `http://127.0.0.1:7545` (Chain ID `1337`).
+3. In Remix Deploy & Run: set **Environment -> Custom - External Http Provider** (`http://127.0.0.1:7545`).
+4. Deploy and test every happy path, edge case, and revert condition per [report/REPORT.md](report/REPORT.md).
 
-```text
-.
-├── contracts/       # 15 standalone Solidity contracts (01 -> 15)
-├── screenshots/     # Remix IDE compilation & transaction verification captures
-└── README.md
-```
-
-## Smart Contracts
-
-| # | File | Contract(s) | Level | Description |
-| :-: | :--- | :--- | :--- | :--- |
-| 01 | `contracts/01_Storage.sol` | `Storage` | Basic | On-chain `uint256` storage with constructor initialization and `ValueSet` event |
-| 02 | `contracts/02_Greeting.sol` | `Greeting` | Basic | Owner-restricted greeting message with `GreetingChanged` event |
-| 03 | `contracts/03_Counter.sol` | `Counter` | Basic | Bounded counter within `[0, 100]` (`increment`, `decrement`, `reset`) |
-| 04 | `contracts/04_Ownable.sol` | `Ownable`, `ProtectedVault` | Medium | Reusable ownership access control with ETH vault enforcing CEI |
-| 05 | `contracts/05_SimpleBank.sol` | `SimpleBank` | Medium | Per-user ETH deposit/withdrawal vault using Checks-Effects-Interactions |
-| 06 | `contracts/06_Voting.sol` | `Voting` | Medium | Chairperson-managed election with voter authorization and one-vote enforcement |
-| 07 | `contracts/07_MyToken.sol` | `MyToken` | Medium | Minimal ERC-20 style fungible token built from scratch (`transfer`, `approve`, `transferFrom`) |
-| 08 | `contracts/08_Crowdfunding.sol` | `Crowdfunding` | Advanced | Goal-and-deadline campaign with owner payout or contributor refunds |
-| 09 | `contracts/09_Lottery.sol` | `Lottery` | Advanced | Fixed-fee multi-player lottery with manager-triggered winner selection |
-| 10 | `contracts/10_TimeLockVault.sol` | `TimeLockVault` | Advanced | ETH vault locked until a future `block.timestamp` for a beneficiary |
-| 11 | `contracts/11_Escrow.sol` | `Escrow` | Advanced | Three-party state-machine escrow (`buyer`, `seller`, `arbiter`) with dispute resolution |
-| 12 | `contracts/12_SimpleNFT.sol` | `SimpleNFT` | Advanced | Minimal ERC-721 style NFT collection built from scratch (`MAX_SUPPLY = 100`) |
-| 13 | `contracts/13_EnglishAuction.sol` | `EnglishAuction` | Expert | Timed English auction using Pull-Payment (`pendingReturns`) for outbid refunds |
-| 14 | `contracts/14_MultisigWallet.sol` | `MultisigWallet` | Expert | M-of-N multi-signature ETH wallet with duplicate-confirmation guard & auto-execution |
-| 15 | `contracts/15_StakingRewards.sol` | `StakingRewards` | Expert | Continuous per-second ETH staking rewards funded from `rewardPool` |
-
-## Compile & Test
-
-All contracts use `pragma solidity ^0.8.0` with zero external library imports and can be compiled and deployed directly in [Remix IDE](https://remix.ethereum.org/) or locally with `solc`:
-
-```bash
-solc --optimize --bin contracts/01_Storage.sol
-```
+## Documentation
+- Detailed per-contract test proofs and security design analysis: [report/REPORT.md](report/REPORT.md)
+- Verified screenshots: `45` PNG captures in `screenshots/` (`compile`, happy path `test1`, revert/edge `test2` for all 15 contracts).
