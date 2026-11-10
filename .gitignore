@@ -1,0 +1,14 @@
+# Compiled Solidity artifacts
+*.bin
+*.abi
+
+# Internal browser / Playwright MCP artifacts
+.playwright-mcp/
+
+# Internal report workspace
+report/
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+*.tmp
